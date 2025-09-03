@@ -157,7 +157,7 @@ export default function FeedbackPage() {
           <HighlightH2 sx={{ mb: 3 }}>Snackbars</HighlightH2>
 
           <Stack spacing={2}>
-            <Button variant="contained" onClick={() => setSnackbarOpen(true)}>
+            <Button variant="contained" color="secondary" onClick={() => setSnackbarOpen(true)}>
               Ouvrir Snackbar
             </Button>
 
@@ -195,7 +195,7 @@ export default function FeedbackPage() {
             <Grid item xs={12} sm={6} md={3}>
               <Box sx={{ textAlign: "center" }}>
                 <Tooltip title="Tooltip simple">
-                  <Button variant="contained">Hover me</Button>
+                  <Button variant="contained" color="secondary">Hover me</Button>
                 </Tooltip>
                 <Typography variant="body2" sx={{ mt: 1 }}>
                   Tooltip simple
@@ -250,7 +250,7 @@ export default function FeedbackPage() {
           <HighlightH2 sx={{ mb: 3 }}>Dialogs</HighlightH2>
 
           <Stack spacing={2}>
-            <Button variant="contained" onClick={handleDialogOpen}>
+            <Button variant="contained" color="secondary" onClick={handleDialogOpen}>
               Ouvrir Dialog
             </Button>
 

@@ -329,7 +329,7 @@ export default function ComplexDashboardPage() {
             <CardHeader
               title="Gestion des utilisateurs"
               action={
-                <Button variant="contained" size="small">
+                <Button variant="contained" color="secondary" size="small">
                   Ajouter un utilisateur
                 </Button>
               }

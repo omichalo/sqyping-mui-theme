@@ -100,6 +100,7 @@ export default function HomePage() {
         </Typography>
         <Button
           variant="contained"
+          color="secondary"
           size="large"
           onClick={toggleColorMode}
           sx={{ mb: 4 }}

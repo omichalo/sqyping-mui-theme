@@ -617,7 +617,7 @@ export default function ComplexFormPage() {
               {isSubmitting ? "Envoi en cours..." : "Soumettre"}
             </Button>
           ) : (
-            <Button variant="contained" onClick={handleNext}>
+            <Button variant="contained" color="secondary" onClick={handleNext}>
               Suivant
             </Button>
           )}

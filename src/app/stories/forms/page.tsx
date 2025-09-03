@@ -400,7 +400,7 @@ export default function FormsPage() {
               </Grid>
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2}>
-                  <Button type="submit" variant="contained">
+                  <Button type="submit" variant="contained" color="secondary">
                     Soumettre
                   </Button>
                   <Button type="reset" variant="outlined">
