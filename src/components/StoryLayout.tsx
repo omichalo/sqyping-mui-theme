@@ -113,12 +113,12 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
       <Box sx={{ p: 2, borderBottom: 1, borderColor: "divider" }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
           <Image
-            src="/images/sqyping-logo.svg"
+            src={mode === "light" ? "/favicon.png" : "/images/sqyping-logo.svg"}
             alt="SQY PING Logo"
             width={60}
             height={30}
             style={{ 
-              filter: mode === "light" ? "none" : "brightness(0) invert(1)"
+              filter: mode === "dark" ? "brightness(0) invert(1)" : "none"
             }}
           />
           <Typography variant="h6" color="primary" fontWeight="bold">
