@@ -30,60 +30,6 @@ function ThemeShowcasePage() {
     <Box>
       <HighlightH1 sx={{ mb: 4 }}>SQY PING Theme Showcase</HighlightH1>
 
-      {/* Mise en avant de l'orange SQY PING */}
-      <Card sx={{ mb: 4, bgcolor: "secondary.main", color: "white" }}>
-        <CardContent>
-          <Typography variant="h3" sx={{ mb: 2, fontWeight: 700, textAlign: "center" }}>
-            🧡 Orange SQY PING
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 3, textAlign: "center", opacity: 0.9 }}>
-            La couleur signature qui apporte chaleur, énergie et modernité
-          </Typography>
-          <Grid container spacing={3} justifyContent="center">
-            <Grid item xs={12} sm={6} md={3}>
-              <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-                  {colors.orange}
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  Code couleur principal
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-                  Secondary
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  Couleur MUI
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-                  Warning
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  Également utilisée
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3}>
-              <Box sx={{ textAlign: "center" }}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
-                  Highlight
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  Surlignage titres
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
-
       {/* Palette de couleurs */}
       <Card sx={{ mb: 4 }}>
         <CardContent>
@@ -126,26 +72,14 @@ function ThemeShowcasePage() {
                       borderRadius: 2,
                       border: 1,
                       borderColor: "divider",
-                      position: "relative",
-                      "&::after": {
-                        content: '"🧡"',
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        fontSize: "20px",
-                      }
                     }}
                   />
                   <Box>
-                    <Typography variant="subtitle1" fontWeight="bold" color="secondary.main">
-                      🧡 Orange (Secondary) - Couleur signature
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Orange (Secondary)
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {colors.orange}
-                    </Typography>
-                    <Typography variant="caption" color="secondary.main" sx={{ fontWeight: 600 }}>
-                      Couleur principale de l'identité SQY PING
                     </Typography>
                   </Box>
                 </Box>

@@ -42,26 +42,6 @@ export default function ButtonsAndChipsPage() {
     <Box>
       <HighlightH1 sx={{ mb: 4 }}>Buttons & Chips</HighlightH1>
 
-      {/* Mise en avant de l'orange SQY PING */}
-      <Card sx={{ mb: 4, bgcolor: "secondary.main", color: "white" }}>
-        <CardContent>
-          <Typography variant="h4" sx={{ mb: 2, fontWeight: 700 }}>
-            🧡 Orange SQY PING
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 3, opacity: 0.9 }}>
-            L'orange est la couleur signature de SQY PING. Elle apporte chaleur, énergie et modernité à l'interface.
-          </Typography>
-          <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
-            <Button variant="contained" color="secondary" sx={{ bgcolor: "white", color: "secondary.main", "&:hover": { bgcolor: "grey.100" } }}>
-              Bouton Orange
-            </Button>
-            <Button variant="outlined" sx={{ borderColor: "white", color: "white", "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.1)" } }}>
-              Bouton Blanc
-            </Button>
-          </Stack>
-        </CardContent>
-      </Card>
-
       {/* Boutons */}
       <Card sx={{ mb: 4 }}>
         <CardContent>
@@ -74,12 +54,12 @@ export default function ButtonsAndChipsPage() {
                 Boutons Contained
               </Typography>
               <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
-                <Button variant="contained">Primary (Navy)</Button>
-                <Button variant="contained" color="secondary" sx={{ fontWeight: 600 }}>
-                  🧡 Secondary (Orange)
+                <Button variant="contained">Primary</Button>
+                <Button variant="contained" color="secondary">
+                  Secondary
                 </Button>
                 <Button variant="contained" color="info">
-                  Info (Bleu)
+                  Info
                 </Button>
                 <Button variant="contained" color="success">
                   Success
@@ -104,12 +84,12 @@ export default function ButtonsAndChipsPage() {
                 Boutons Outlined
               </Typography>
               <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
-                <Button variant="outlined">Primary (Navy)</Button>
-                <Button variant="outlined" color="secondary" sx={{ fontWeight: 600 }}>
-                  🧡 Secondary (Orange)
+                <Button variant="outlined">Primary</Button>
+                <Button variant="outlined" color="secondary">
+                  Secondary
                 </Button>
                 <Button variant="outlined" color="info">
-                  Info (Bleu)
+                  Info
                 </Button>
                 <Button variant="outlined" color="success">
                   Success
