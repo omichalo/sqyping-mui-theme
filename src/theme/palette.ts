@@ -31,21 +31,21 @@ const lightPalette: PaletteOptions = {
     contrastText: colors.white,
   },
   error: {
-    main: "#d32f2f",
-    light: "#ef5350",
-    dark: "#c62828",
+    main: "#e53e3e", // Rouge plus chaleureux, inspiré de l'orange SQY PING
+    light: "#fc8181",
+    dark: "#c53030",
     contrastText: colors.white,
   },
   warning: {
-    main: "#ed6c02",
-    light: "#ff9800",
-    dark: "#e65100",
+    main: colors.orange, // Utilise l'orange SQY PING comme warning
+    light: "#ff9f4a",
+    dark: "#d16a00",
     contrastText: colors.white,
   },
   success: {
-    main: "#2e7d32",
-    light: "#4caf50",
-    dark: "#1b5e20",
+    main: "#38a169", // Vert plus moderne, harmonieux avec la palette
+    light: "#68d391",
+    dark: "#2f855a",
     contrastText: colors.white,
   },
   background: {
@@ -59,16 +59,16 @@ const lightPalette: PaletteOptions = {
   },
   divider: "#e0e0e0",
   grey: {
-    50: "#fafafa",
-    100: "#f5f5f5",
-    200: "#eeeeee",
-    300: "#e0e0e0",
-    400: "#bdbdbd",
-    500: "#9e9e9e",
-    600: "#757575",
-    700: "#616161",
-    800: "#424242",
-    900: "#212121",
+    50: "#f8f9fa", // Légèrement teinté de bleu
+    100: "#f1f3f4", // Plus doux
+    200: "#e8eaed", // Teinté de navy
+    300: "#dadce0", // Harmonie avec la palette
+    400: "#9aa0a6", // Gris neutre
+    500: "#5f6368", // Gris moyen
+    600: "#3c4043", // Gris foncé
+    700: "#202124", // Proche du navy
+    800: "#1a1f4a", // Navy foncé
+    900: "#0d1117", // Très foncé, harmonieux
   },
 };
 
@@ -94,22 +94,22 @@ const darkPalette: PaletteOptions = {
     contrastText: colors.white,
   },
   error: {
-    main: "#f44336",
-    light: "#e57373",
-    dark: "#d32f2f",
-    contrastText: colors.white,
+    main: "#fc8181", // Rouge plus clair pour le mode sombre
+    light: "#feb2b2",
+    dark: "#e53e3e",
+    contrastText: colors.black,
   },
   warning: {
-    main: "#ff9800",
-    light: "#ffb74d",
-    dark: "#f57c00",
+    main: colors.orange, // Utilise l'orange SQY PING comme warning
+    light: "#ff9f4a",
+    dark: "#d16a00",
     contrastText: colors.black,
   },
   success: {
-    main: "#4caf50",
-    light: "#81c784",
-    dark: "#388e3c",
-    contrastText: colors.white,
+    main: "#68d391", // Vert plus clair pour le mode sombre
+    light: "#9ae6b4",
+    dark: "#38a169",
+    contrastText: colors.black,
   },
   background: {
     default: "#121212",
@@ -122,16 +122,16 @@ const darkPalette: PaletteOptions = {
   },
   divider: "#333333",
   grey: {
-    50: "#fafafa",
-    100: "#f5f5f5",
-    200: "#eeeeee",
-    300: "#e0e0e0",
-    400: "#bdbdbd",
-    500: "#9e9e9e",
-    600: "#757575",
-    700: "#616161",
-    800: "#424242",
-    900: "#212121",
+    50: "#0d1117", // Très foncé, harmonieux
+    100: "#161b22", // Navy foncé
+    200: "#21262d", // Proche du navy
+    300: "#30363d", // Gris foncé
+    400: "#484f58", // Gris moyen
+    500: "#656d76", // Gris neutre
+    600: "#8b949e", // Gris clair
+    700: "#b1bac4", // Harmonie avec la palette
+    800: "#c9d1d9", // Teinté de navy
+    900: "#f0f6fc", // Plus doux, teinté de bleu
   },
 };
 
@@ -142,8 +142,11 @@ declare module "@mui/material/styles" {
       highlight: string;
       highlightDark: string;
       accent: string;
+      accentLight: string;
       surface: string;
       surfaceDark: string;
+      navyLight: string;
+      navyText: string;
     };
   }
 
@@ -152,8 +155,11 @@ declare module "@mui/material/styles" {
       highlight?: string;
       highlightDark?: string;
       accent?: string;
+      accentLight?: string;
       surface?: string;
       surfaceDark?: string;
+      navyLight?: string;
+      navyText?: string;
     };
   }
 }
@@ -164,15 +170,21 @@ const customColors = {
     highlight: colors.orange,
     highlightDark: "#d16a00",
     accent: colors.blue,
+    accentLight: "#8ba8e0", // Bleu plus clair pour éviter le contraste faible
     surface: "#f8f9fa",
     surfaceDark: "#e9ecef",
+    navyLight: "#4a4a8a", // Navy clair pour les textes sur fond clair
+    navyText: "#1a1f4a", // Navy foncé pour les textes sur fond clair
   },
   dark: {
     highlight: colors.orange,
     highlightDark: "#d16a00",
     accent: "#6b8dd1",
+    accentLight: "#8ba8e0", // Bleu plus clair pour le mode sombre
     surface: "#2a2a2a",
     surfaceDark: "#1a1a1a",
+    navyLight: "#6b6ba0", // Navy clair pour le mode sombre
+    navyText: "#4a4a8a", // Navy clair pour les textes sur fond sombre
   },
 };
 
