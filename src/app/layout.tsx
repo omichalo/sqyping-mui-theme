@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: "SQY PING - MUI Theme",
   description:
     "Production-ready MUI theme for SQY PING React/Next.js application",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

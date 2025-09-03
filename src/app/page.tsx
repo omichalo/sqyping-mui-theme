@@ -13,6 +13,7 @@ import {
 import { HighlightH1, HighlightTitle } from "@/components/Highlight";
 import { useColorMode } from "@/providers/AppThemeProvider";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Palette as PaletteIcon,
   SmartButton as ButtonIcon,
@@ -85,6 +86,15 @@ export default function HomePage() {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Box sx={{ mb: 3 }}>
+          <Image
+            src="/images/sqyping-logo.svg"
+            alt="SQY PING Logo"
+            width={120}
+            height={60}
+            style={{ margin: "0 auto" }}
+          />
+        </Box>
         <HighlightH1 sx={{ mb: 2 }}>SQY PING Theme</HighlightH1>
         <Typography variant="h5" color="text.secondary" sx={{ mb: 4 }}>
           Thème MUI production-ready pour React/Next.js

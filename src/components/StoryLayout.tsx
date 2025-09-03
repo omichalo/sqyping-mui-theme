@@ -35,6 +35,7 @@ import {
 import { useColorMode } from "@/providers/AppThemeProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 // Configuration des pages de démonstration
 const storyPages = [
@@ -110,9 +111,17 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
   const drawer = (
     <Box sx={{ width: 280, height: "100%" }}>
       <Box sx={{ p: 2, borderBottom: 1, borderColor: "divider" }}>
-        <Typography variant="h6" color="primary" fontWeight="bold">
-          SQY PING
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
+          <Image
+            src="/images/sqyping-logo.svg"
+            alt="SQY PING Logo"
+            width={40}
+            height={20}
+          />
+          <Typography variant="h6" color="primary" fontWeight="bold">
+            SQY PING
+          </Typography>
+        </Box>
         <Typography variant="caption" color="text.secondary">
           Theme Stories
         </Typography>
