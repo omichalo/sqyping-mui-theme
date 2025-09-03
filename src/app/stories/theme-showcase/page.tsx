@@ -11,6 +11,8 @@ import {
   Divider,
   Card,
   CardContent,
+  Alert,
+  AlertTitle,
 } from "@mui/material";
 import {
   Highlight,
@@ -176,6 +178,181 @@ function ThemeShowcasePage() {
               </Stack>
             </Grid>
           </Grid>
+        </CardContent>
+      </Card>
+
+      {/* Couleurs personnalisées et système */}
+      <Card sx={{ mb: 4 }}>
+        <CardContent>
+          <HighlightH2 sx={{ mb: 3 }}>Couleurs personnalisées et système</HighlightH2>
+
+          <Grid container spacing={3}>
+            {/* Couleurs personnalisées */}
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Couleurs personnalisées
+              </Typography>
+              <Stack spacing={2}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.custom.accentLight,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Accent Light
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.custom.accentLight}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Bleu clair pour éviter les contrastes faibles
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.custom.navyLight,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Navy Light
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.custom.navyLight}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Navy clair pour les textes
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.custom.surface,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Surface
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.custom.surface}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Surface de fond personnalisée
+                    </Typography>
+                  </Box>
+                </Box>
+              </Stack>
+            </Grid>
+
+            {/* Couleurs système */}
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Couleurs système
+              </Typography>
+              <Stack spacing={2}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.error.main,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Error
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.error.main}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Rouge chaleureux inspiré de l'orange SQY PING
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.warning.main,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Warning
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.warning.main}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Utilise directement l'orange SQY PING
+                    </Typography>
+                  </Box>
+                </Box>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <Box
+                    sx={{
+                      width: 60,
+                      height: 60,
+                      backgroundColor: theme.palette.success.main,
+                      borderRadius: 2,
+                      border: 1,
+                      borderColor: "divider",
+                    }}
+                  />
+                  <Box>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Success
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {theme.palette.success.main}
+                    </Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Vert moderne harmonieux avec la palette
+                    </Typography>
+                  </Box>
+                </Box>
+              </Stack>
+            </Grid>
+          </Grid>
+
+          <Alert severity="info" sx={{ mt: 3 }}>
+            <AlertTitle>Bonnes pratiques de contraste</AlertTitle>
+            Utilisez <strong>accentLight</strong> au lieu de <strong>info.main</strong> sur fond navy pour un meilleur contraste. 
+            Évitez la combinaison bleu sur navy qui a un contraste insuffisant (2.1:1).
+          </Alert>
         </CardContent>
       </Card>
 

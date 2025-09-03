@@ -31,7 +31,6 @@ import {
   Assignment as FormPageIcon,
   Brightness4 as DarkModeIcon,
   Brightness7 as LightModeIcon,
-  ColorLens as ColorLensIcon,
 } from "@mui/icons-material";
 import { useColorMode } from "@/providers/AppThemeProvider";
 import Link from "next/link";
@@ -44,12 +43,6 @@ const storyPages = [
     path: "/stories/theme-showcase",
     icon: <PaletteIcon />,
     description: "Palette de couleurs et typographies",
-  },
-  {
-    title: "Palette Improvements",
-    path: "/stories/palette-improvements",
-    icon: <ColorLensIcon />,
-    description: "Améliorations de la palette SQY PING",
   },
   {
     title: "Buttons & Chips",
