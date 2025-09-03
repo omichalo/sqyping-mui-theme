@@ -88,13 +88,12 @@ export default function HomePage() {
       <Box sx={{ textAlign: "center", mb: 6 }}>
         <Box sx={{ mb: 4 }}>
           <Image
-            src={mode === "light" ? "/favicon.png" : "/images/sqyping-logo.svg"}
+            src={mode === "light" ? "/favicon.png" : "/images/sqyping-logo-dark.svg"}
             alt="SQY PING Logo"
             width={200}
             height={100}
             style={{ 
-              margin: "0 auto",
-              filter: mode === "dark" ? "brightness(0) invert(1)" : "none"
+              margin: "0 auto"
             }}
           />
         </Box>

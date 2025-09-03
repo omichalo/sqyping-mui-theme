@@ -1,0 +1,22 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- SQY PING Logo - Version sombre -->
+  
+  <!-- Texte SQY -->
+  <text x="10" y="35" font-family="Figtree, sans-serif" font-size="24" font-weight="700" fill="#28306d">
+    SQY
+  </text>
+  
+  <!-- Texte PING -->
+  <text x="10" y="55" font-family="Figtree, sans-serif" font-size="24" font-weight="700" fill="#28306d">
+    PING
+  </text>
+  
+  <!-- Arc orange au-dessus de SQY -->
+  <path d="M 5 25 Q 50 15 95 25" stroke="#f1861f" stroke-width="4" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cercle orange à la fin de l'arc -->
+  <circle cx="95" cy="25" r="4" fill="#f1861f"/>
+  
+  <!-- Ligne de soulignement sous PING -->
+  <path d="M 10 60 L 80 60 Q 85 60 85 55" stroke="#28306d" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>
