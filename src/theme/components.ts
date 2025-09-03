@@ -174,17 +174,28 @@ export const createComponents = (theme: Theme): Components<Theme> => ({
   MuiAppBar: {
     styleOverrides: {
       root: {
-        boxShadow: theme.shadows[1],
-        backdropFilter: "blur(10px)",
-        backgroundColor: theme.palette.background.paper + "95",
-        borderBottom: `1px solid ${theme.palette.divider}`,
-        transition: "all 0.3s ease",
+        boxShadow: theme.shadows[4],
+        backdropFilter: "blur(20px)",
+        backgroundColor: theme.palette.primary.main,
+        borderBottom: `3px solid ${theme.palette.secondary.main}`,
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          background: `linear-gradient(90deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.secondary.main} 100%)`,
+          opacity: 0.8,
+        },
       },
       colorDefault: {
-        backgroundColor: theme.palette.background.paper + "95",
+        backgroundColor: theme.palette.primary.main,
       },
       colorPrimary: {
-        backgroundColor: theme.palette.primary.main + "95",
+        backgroundColor: theme.palette.primary.main,
       },
     },
   },
@@ -376,18 +387,31 @@ export const createComponents = (theme: Theme): Components<Theme> => ({
   MuiSwitch: {
     styleOverrides: {
       root: {
-        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         "& .MuiSwitch-track": {
-          borderRadius: "12px",
-          transition: "background-color 0.2s ease",
+          borderRadius: "14px",
+          transition: "all 0.3s ease",
+          backgroundColor: theme.palette.grey[300],
+          border: `2px solid ${theme.palette.grey[400]}`,
+          "&.Mui-checked": {
+            backgroundColor: theme.palette.secondary.main,
+            border: `2px solid ${theme.palette.secondary.dark}`,
+          },
         },
         "& .MuiSwitch-thumb": {
-          borderRadius: "10px",
-          transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-          boxShadow: theme.shadows[2],
+          borderRadius: "12px",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          boxShadow: theme.shadows[4],
+          backgroundColor: theme.palette.common.white,
+          border: `2px solid ${theme.palette.grey[400]}`,
           "&:hover": {
-            boxShadow: theme.shadows[4],
-            transform: "scale(1.1)",
+            boxShadow: theme.shadows[6],
+            transform: "scale(1.15)",
+          },
+          "&.Mui-checked": {
+            backgroundColor: theme.palette.common.white,
+            border: `2px solid ${theme.palette.secondary.dark}`,
+            transform: "translateX(20px)",
           },
         },
         "&.Mui-checked": {

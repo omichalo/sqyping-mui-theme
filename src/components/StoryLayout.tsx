@@ -203,6 +203,7 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
       {/* AppBar */}
       <AppBar
         position="fixed"
+        color="primary"
         sx={{
           width: { md: `calc(100% - 280px)` },
           ml: { md: "280px" },
