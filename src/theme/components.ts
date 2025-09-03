@@ -210,10 +210,23 @@ export const createComponents = (theme: Theme): Components<Theme> => ({
   },
   MuiTabs: {
     styleOverrides: {
+      root: {
+        backgroundColor: theme.palette.background.paper + "80",
+        borderRadius: "12px",
+        padding: "4px",
+        backdropFilter: "blur(10px)",
+        border: `1px solid ${theme.palette.divider}`,
+        boxShadow: theme.shadows[1],
+      },
       indicator: {
         height: "4px",
         borderRadius: "2px",
         backgroundColor: theme.palette.secondary.main,
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        boxShadow: `0 2px 4px ${theme.palette.secondary.main}40`,
+      },
+      flexContainer: {
+        gap: "4px",
       },
     },
   },
@@ -224,6 +237,34 @@ export const createComponents = (theme: Theme): Components<Theme> => ({
         fontWeight: 500,
         fontSize: "0.875rem",
         minHeight: "48px",
+        borderRadius: "8px",
+        padding: "12px 20px",
+        margin: "0 2px",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        position: "relative",
+        overflow: "hidden",
+        "&:hover": {
+          backgroundColor: theme.palette.primary.main + "15",
+          transform: "translateY(-1px)",
+          boxShadow: theme.shadows[2],
+        },
+        "&:active": {
+          transform: "translateY(0px)",
+          transition: "transform 0.1s ease",
+        },
+        "&.Mui-selected": {
+          fontWeight: 600,
+          color: theme.palette.primary.main,
+          backgroundColor: theme.palette.primary.main + "10",
+          "&:hover": {
+            backgroundColor: theme.palette.primary.main + "20",
+            transform: "translateY(-1px)",
+          },
+        },
+        "&.Mui-focusVisible": {
+          outline: `2px solid ${theme.palette.primary.main}`,
+          outlineOffset: "2px",
+        },
       },
     },
   },
