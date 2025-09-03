@@ -116,10 +116,11 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
             src="/images/sqying.png"
             alt="SQY PING Logo"
             width={60}
-            height={30}
-            style={{ 
+            height={0}
+            style={{
               margin: "0 auto",
-              filter: mode === "dark" ? "brightness(0) invert(1)" : "none"
+              height: "auto",
+              filter: mode === "dark" ? "brightness(0) invert(1)" : "none",
             }}
           />
           <Typography variant="h6" color="primary" fontWeight="bold">

@@ -91,10 +91,11 @@ export default function HomePage() {
             src="/images/sqying.png"
             alt="SQY PING Logo"
             width={200}
-            height={100}
-            style={{ 
+            height={0}
+            style={{
               margin: "0 auto",
-              filter: mode === "dark" ? "brightness(0) invert(1)" : "none"
+              height: "auto",
+              filter: mode === "dark" ? "brightness(0) invert(1)" : "none",
             }}
           />
         </Box>
