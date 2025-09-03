@@ -86,13 +86,16 @@ export default function HomePage() {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ textAlign: "center", mb: 6 }}>
-        <Box sx={{ mb: 3 }}>
+        <Box sx={{ mb: 4 }}>
           <Image
             src="/images/sqyping-logo.svg"
             alt="SQY PING Logo"
-            width={120}
-            height={60}
-            style={{ margin: "0 auto" }}
+            width={200}
+            height={100}
+            style={{ 
+              margin: "0 auto",
+              filter: mode === "light" ? "none" : "brightness(0) invert(1)"
+            }}
           />
         </Box>
         <HighlightH1 sx={{ mb: 2 }}>SQY PING Theme</HighlightH1>

@@ -115,8 +115,11 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
           <Image
             src="/images/sqyping-logo.svg"
             alt="SQY PING Logo"
-            width={40}
-            height={20}
+            width={60}
+            height={30}
+            style={{ 
+              filter: mode === "light" ? "none" : "brightness(0) invert(1)"
+            }}
           />
           <Typography variant="h6" color="primary" fontWeight="bold">
             SQY PING
