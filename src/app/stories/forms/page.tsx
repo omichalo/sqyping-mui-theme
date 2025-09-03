@@ -77,6 +77,26 @@ export default function FormsPage() {
     <Box>
       <HighlightH1 sx={{ mb: 4 }}>Formulaires</HighlightH1>
 
+      {/* Mise en avant de l'orange dans les formulaires */}
+      <Card sx={{ mb: 4, bgcolor: "secondary.main", color: "white" }}>
+        <CardContent>
+          <Typography variant="h4" sx={{ mb: 2, fontWeight: 700 }}>
+            🧡 Formulaires avec Orange SQY PING
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 3, opacity: 0.9 }}>
+            L'orange apporte de la chaleur et de l'énergie aux formulaires, rendant l'expérience utilisateur plus engageante.
+          </Typography>
+          <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
+            <Button variant="contained" color="secondary" sx={{ bgcolor: "white", color: "secondary.main", "&:hover": { bgcolor: "grey.100" } }}>
+              Soumettre
+            </Button>
+            <Button variant="outlined" sx={{ borderColor: "white", color: "white", "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.1)" } }}>
+              Annuler
+            </Button>
+          </Stack>
+        </CardContent>
+      </Card>
+
       {/* Champs de texte */}
       <Card sx={{ mb: 4 }}>
         <CardContent>
