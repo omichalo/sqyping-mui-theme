@@ -35,59 +35,8 @@ import {
 import { useColorMode } from "@/providers/AppThemeProvider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
-// Configuration des pages de démonstration
-const storyPages = [
-  {
-    title: "Theme Showcase",
-    path: "/stories/theme-showcase",
-    icon: <PaletteIcon />,
-    description: "Palette de couleurs et typographies",
-  },
-  {
-    title: "Buttons & Chips",
-    path: "/stories/buttons-chips",
-    icon: <ButtonIcon />,
-    description: "Boutons, Chips et Badges",
-  },
-  {
-    title: "Forms",
-    path: "/stories/forms",
-    icon: <FormIcon />,
-    description: "Champs de formulaire et validation",
-  },
-  {
-    title: "Navigation",
-    path: "/stories/navigation",
-    icon: <NavIcon />,
-    description: "AppBar, Drawer, Tabs, Breadcrumbs",
-  },
-  {
-    title: "Feedback",
-    path: "/stories/feedback",
-    icon: <FeedbackIcon />,
-    description: "Alertes, Snackbars, Tooltips, Dialogs",
-  },
-  {
-    title: "Cards & Lists",
-    path: "/stories/cards-lists",
-    icon: <CardIcon />,
-    description: "Cards, Accordions, Listes, Avatars",
-  },
-  {
-    title: "Complex Dashboard",
-    path: "/stories/complex-dashboard",
-    icon: <DashboardIcon />,
-    description: "Tableau de bord avec graphiques",
-  },
-  {
-    title: "Complex Form Page",
-    path: "/stories/complex-form-page",
-    icon: <FormPageIcon />,
-    description: "Formulaire multi-sections avec stepper",
-  },
-];
+const DRAWER_WIDTH = 280;
 
 interface StoryLayoutProps {
   children: React.ReactNode;
@@ -108,108 +57,61 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
     setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    <Box sx={{ width: 280, height: "100%" }}>
-      <Box sx={{ p: 2, borderBottom: 1, borderColor: "divider" }}>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1 }}>
-          <Image
-            src="/images/sqying.png"
-            alt="SQY PING Logo"
-            width={60}
-            height={0}
-            style={{
-              margin: "0 auto",
-              height: "auto",
-              filter: mode === "dark" ? "brightness(0) invert(1)" : "none",
-            }}
-          />
-          <Typography variant="h6" color="primary" fontWeight="bold">
-            SQY PING
-          </Typography>
-        </Box>
-        <Typography variant="caption" color="text.secondary">
-          Theme Stories
-        </Typography>
-      </Box>
-
-      <List sx={{ px: 1, py: 2 }}>
-        {storyPages.map((page) => (
-          <ListItem key={page.path} disablePadding>
-            <ListItemButton
-              component={Link}
-              href={page.path}
-              selected={pathname === page.path}
-              sx={{
-                borderRadius: 2,
-                mb: 0.5,
-                "&.Mui-selected": {
-                  backgroundColor: "primary.main",
-                  color: "primary.contrastText",
-                  "&:hover": {
-                    backgroundColor: "primary.dark",
-                  },
-                  "& .MuiListItemIcon-root": {
-                    color: "primary.contrastText",
-                  },
-                },
-              }}
-            >
-              <ListItemIcon sx={{ minWidth: 40 }}>{page.icon}</ListItemIcon>
-              <ListItemText
-                primary={page.title}
-                secondary={page.description}
-                primaryTypographyProps={{
-                  fontSize: "0.875rem",
-                  fontWeight: 500,
-                }}
-                secondaryTypographyProps={{ fontSize: "0.75rem" }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-
-      <Divider sx={{ mx: 2 }} />
-
-      <Box sx={{ p: 2 }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={mode === "dark"}
-              onChange={toggleColorMode}
-              icon={<LightModeIcon />}
-              checkedIcon={<DarkModeIcon />}
-            />
-          }
-          label={
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              {mode === "dark" ? (
-                <DarkModeIcon fontSize="small" />
-              ) : (
-                <LightModeIcon fontSize="small" />
-              )}
-              <Typography variant="body2">
-                {mode === "dark" ? "Mode sombre" : "Mode clair"}
-              </Typography>
-            </Box>
-          }
-        />
-      </Box>
-    </Box>
-  );
+  const storyPages = [
+    {
+      title: "Theme Showcase",
+      path: "/stories/theme-showcase",
+      icon: <PaletteIcon />,
+      description: "Palette de couleurs et typographies",
+    },
+    {
+      title: "Buttons & Chips",
+      path: "/stories/buttons-chips",
+      icon: <ButtonIcon />,
+      description: "Boutons, Chips et Badges",
+    },
+    {
+      title: "Forms",
+      path: "/stories/forms",
+      icon: <FormIcon />,
+      description: "Champs de formulaire et validation",
+    },
+    {
+      title: "Navigation",
+      path: "/stories/navigation",
+      icon: <NavIcon />,
+      description: "AppBar, Drawer, Tabs, Breadcrumbs",
+    },
+    {
+      title: "Feedback",
+      path: "/stories/feedback",
+      icon: <FeedbackIcon />,
+      description: "Alertes, Snackbars, Tooltips, Dialogs",
+    },
+    {
+      title: "Cards & Lists",
+      path: "/stories/cards-lists",
+      icon: <CardIcon />,
+      description: "Cards, Accordions, Listes, Avatars",
+    },
+    {
+      title: "Complex Dashboard",
+      path: "/stories/complex-dashboard",
+      icon: <DashboardIcon />,
+      description: "Tableau de bord avec graphiques",
+    },
+    {
+      title: "Complex Form Page",
+      path: "/stories/complex-form-page",
+      icon: <FormPageIcon />,
+      description: "Formulaire multi-sections avec stepper",
+    },
+  ];
 
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh" }}>
-      {/* AppBar */}
-      <AppBar
-        position="fixed"
-        color="primary"
-        sx={{
-          width: { md: `calc(100% - 280px)` },
-          ml: { md: "280px" },
-          zIndex: theme.zIndex.drawer + 1,
-        }}
-      >
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      {/* AppBar - En haut */}
+      <AppBar position="static" sx={{ zIndex: 1300 }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -229,56 +131,127 @@ export const StoryLayout: React.FC<StoryLayoutProps> = ({
         </Toolbar>
       </AppBar>
 
-      {/* Drawer */}
-      <Box component="nav" sx={{ width: { md: 280 }, flexShrink: { md: 0 } }}>
-        {/* Mobile drawer */}
+      {/* Contenu principal avec sidebar */}
+      <Box sx={{ display: "flex", flex: 1 }}>
+        {/* Sidebar - À gauche */}
         <Drawer
-          variant="temporary"
-          open={mobileOpen}
+          variant={isMobile ? "temporary" : "permanent"}
+          open={isMobile ? mobileOpen : true}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Améliore les performances sur mobile
-          }}
           sx={{
-            display: { xs: "block", md: "none" },
+            width: DRAWER_WIDTH,
+            flexShrink: 0,
             "& .MuiDrawer-paper": {
+              width: DRAWER_WIDTH,
               boxSizing: "border-box",
-              width: 280,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-
-        {/* Desktop drawer */}
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", md: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: 280,
               position: "relative",
             },
           }}
-          open
         >
-          {drawer}
-        </Drawer>
-      </Box>
+          <Box sx={{ p: 2, borderBottom: 1, borderColor: "divider" }}>
+            <Typography variant="h6" color="primary" fontWeight="bold">
+              SQY PING
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              Theme Stories
+            </Typography>
+          </Box>
 
-      {/* Contenu principal */}
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          width: { md: `calc(100% - 280px)` },
-          minHeight: "100vh",
-          backgroundColor: "background.default",
-        }}
-      >
-        <Toolbar />
-        <Box sx={{ p: 3 }}>{children}</Box>
+          <List sx={{ px: 1, py: 2 }}>
+            {storyPages.map((page) => (
+              <ListItem key={page.path} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  href={page.path}
+                  selected={pathname === page.path}
+                  sx={{
+                    borderRadius: 2,
+                    mb: 0.5,
+                    "&.Mui-selected": {
+                      backgroundColor: "primary.main",
+                      color: "primary.contrastText",
+                      "&:hover": {
+                        backgroundColor: "primary.dark",
+                      },
+                      "& .MuiListItemIcon-root": {
+                        color: "primary.contrastText",
+                      },
+                    },
+                  }}
+                >
+                  <ListItemIcon sx={{ minWidth: 40 }}>{page.icon}</ListItemIcon>
+                  <ListItemText
+                    primary={page.title}
+                    secondary={page.description}
+                    primaryTypographyProps={{
+                      fontSize: "0.875rem",
+                      fontWeight: 500,
+                    }}
+                    secondaryTypographyProps={{ fontSize: "0.75rem" }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider sx={{ mx: 2 }} />
+
+          <Box sx={{ p: 2 }}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={mode === "dark"}
+                  onChange={toggleColorMode}
+                  sx={{
+                    "& .MuiSwitch-thumb": {
+                      backgroundColor: mode === "dark" ? "#fff" : "#ffa726",
+                    },
+                    "& .MuiSwitch-track": {
+                      backgroundColor: mode === "dark" ? "#1976d2" : "#ffcc02",
+                      opacity: 1,
+                    },
+                  }}
+                />
+              }
+              label={
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  {mode === "dark" ? (
+                    <DarkModeIcon
+                      fontSize="small"
+                      sx={{ color: "primary.contrastText" }}
+                    />
+                  ) : (
+                    <LightModeIcon
+                      fontSize="small"
+                      sx={{ color: "warning.dark" }}
+                    />
+                  )}
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 500,
+                      color: "text.primary",
+                    }}
+                  >
+                    {mode === "dark" ? "Mode sombre" : "Mode clair"}
+                  </Typography>
+                </Box>
+              }
+            />
+          </Box>
+        </Drawer>
+
+        {/* Contenu principal - À droite */}
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            backgroundColor: "background.default",
+            p: 3,
+          }}
+        >
+          {children}
+        </Box>
       </Box>
     </Box>
   );

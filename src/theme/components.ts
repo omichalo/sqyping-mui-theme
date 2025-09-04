@@ -563,7 +563,7 @@ export const createComponents = (theme: Theme): Components<Theme> => ({
         "& .MuiTableRow-root": {
           transition: "background-color 0.2s ease",
           "&:nth-of-type(even)": {
-            backgroundColor: theme.palette.grey[25] || theme.palette.grey[50],
+            backgroundColor: theme.palette.grey[50],
           },
           "&:hover": {
             backgroundColor: theme.palette.primary.main + "08",

@@ -156,7 +156,6 @@ declare module "@mui/material/styles" {
       highlightDark?: string;
       accent?: string;
       accentLight?: string;
-      surface?: string;
       surfaceDark?: string;
       navyLight?: string;
       navyText?: string;

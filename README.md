@@ -39,6 +39,22 @@ npm install
 npm run dev
 ```
 
+## 🌐 Déploiement
+
+L'application de démo est déployée sur Firebase Hosting :
+
+**🔗 [Voir la démo en ligne](https://sqyping-mui-demo.web.app)**
+
+### Déploiement local
+
+```bash
+# Build et export statique
+npm run export
+
+# Déploiement sur Firebase
+npm run deploy
+```
+
 ### Dépendances principales
 
 ```json
@@ -68,18 +84,22 @@ src/
 ├── components/
 │   ├── Highlight.tsx       # Composant pour titres surlignés
 │   └── StoryLayout.tsx     # Layout pour les pages de démo
-└── app/
-    ├── (stories)/          # Pages de démonstration
-    │   ├── theme-showcase/
-    │   ├── buttons-chips/
-    │   ├── forms/
-    │   ├── navigation/
-    │   ├── feedback/
-    │   ├── cards-lists/
-    │   ├── complex-dashboard/
-    │   └── complex-form-page/
-    ├── layout.tsx          # Layout principal
-    └── page.tsx           # Page d'accueil
+├── app/
+│   ├── stories/            # Pages de démonstration
+│   │   ├── theme-showcase/
+│   │   ├── buttons-chips/
+│   │   ├── forms/
+│   │   ├── navigation/
+│   │   ├── feedback/
+│   │   ├── cards-lists/
+│   │   ├── complex-dashboard/
+│   │   └── complex-form-page/
+│   ├── layout.tsx          # Layout principal
+│   └── page.tsx           # Page d'accueil
+└── public/
+    ├── images/
+    │   └── sqying.png      # Logo SQY PING
+    └── favicon.png         # Favicon
 ```
 
 ## 🎯 Utilisation
@@ -218,7 +238,7 @@ Le projet inclut 8 pages de démonstration complètes :
 
 ### Ajouter une nouvelle story page
 
-1. Créer le dossier dans `src/app/(stories)/`
+1. Créer le dossier dans `src/app/stories/`
 2. Ajouter la page dans `src/components/StoryLayout.tsx`
 3. Mettre à jour la navigation
 
@@ -280,6 +300,28 @@ Le thème supporte automatiquement les modes sombre et clair :
 - **Mode sombre**: Couleurs adaptées pour la lisibilité nocturne
 - **Persistance**: Le choix est sauvegardé dans localStorage
 - **Hook**: `useColorMode()` pour contrôler le mode
+- **Switch visuel**: Interface intuitive pour basculer entre les modes
+
+## 🎨 Fonctionnalités récentes
+
+### Logo et identité visuelle
+
+- **Logo SQY PING** intégré dans l'application de démo
+- **Favicon** personnalisé pour l'onglet du navigateur
+- **Adaptation automatique** du logo selon le mode (clair/sombre)
+
+### Layout et navigation
+
+- **Sidebar responsive** avec navigation par pages
+- **AppBar moderne** avec intégration du logo
+- **Switch dark/light** optimisé pour la visibilité
+- **Layout cohérent** sur toutes les pages de démo
+
+### Déploiement
+
+- **Firebase Hosting** configuré et déployé
+- **Export statique** optimisé pour la performance
+- **URL de démo** : https://sqyping-mui-demo.web.app
 
 ## ♿ Accessibilité
 
@@ -303,6 +345,8 @@ npm run build        # Build de production
 npm run start        # Serveur de production
 npm run lint         # Linting ESLint
 npm run type-check   # Vérification TypeScript
+npm run export       # Export statique pour déploiement
+npm run deploy       # Déploiement sur Firebase
 ```
 
 ## 📄 Licence
