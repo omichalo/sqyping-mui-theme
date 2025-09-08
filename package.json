@@ -1,35 +1,58 @@
 {
-  "name": "sqyping-mui-theme",
-  "version": "1.0.0",
-  "description": "Production-ready MUI theme for SQY PING React/Next.js application",
-  "private": true,
+  "name": "@sqyping/mui-theme",
+  "version": "0.1.0",
+  "description": "Production-ready MUI theme for SQY PING React/Next.js applications",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "export": "next build",
-    "deploy": "npm run export && firebase deploy"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "demo:dev": "cd demo && npm run dev",
+    "demo:build": "cd demo && npm run build",
+    "demo:deploy": "cd demo && npm run deploy"
   },
-  "dependencies": {
-    "@emotion/react": "^11.11.1",
+  "keywords": [
+    "mui",
+    "material-ui",
+    "theme",
+    "react",
+    "nextjs",
+    "typescript",
+    "sqyping",
+    "design-system"
+  ],
+  "author": "SQY PING",
+  "license": "MIT",
+  "peerDependencies": {
+    "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@fontsource-variable/figtree": "^5.0.1",
-    "@mui/icons-material": "^5.14.19",
-    "@mui/material": "^5.14.20",
-    "@mui/x-charts": "^6.18.1",
-    "@mui/x-data-grid": "^6.18.1",
-    "next": "14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@mui/icons-material": "^5.14.0",
+    "@mui/material": "^5.14.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "14.0.4",
+    "rollup": "^4.50.1",
+    "rollup-plugin-dts": "^6.2.3",
     "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omichalo/sqyping-mui-theme.git"
+  },
+  "homepage": "https://github.com/omichalo/sqyping-mui-theme#readme",
+  "bugs": {
+    "url": "https://github.com/omichalo/sqyping-mui-theme/issues"
   }
 }

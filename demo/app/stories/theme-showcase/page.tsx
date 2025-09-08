@@ -11,7 +11,7 @@ import {
   Divider,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { colors } from "@/theme/palette";
+// Theme is available via useTheme hook
 
 export default function ThemeShowcasePage() {
   const theme = useTheme();
@@ -42,7 +42,7 @@ export default function ThemeShowcasePage() {
                   sx={{
                     width: 60,
                     height: 60,
-                    backgroundColor: colors.navy,
+                    backgroundColor: theme.palette.primary.main,
                     borderRadius: 2,
                     border: 1,
                     borderColor: "divider",
@@ -53,7 +53,7 @@ export default function ThemeShowcasePage() {
                     Navy (Primary)
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {colors.navy}
+                    {theme.palette.primary.main}
                   </Typography>
                 </Box>
               </Box>
@@ -63,7 +63,7 @@ export default function ThemeShowcasePage() {
                   sx={{
                     width: 60,
                     height: 60,
-                    backgroundColor: colors.orange,
+                    backgroundColor: theme.palette.secondary.main,
                     borderRadius: 2,
                     border: 1,
                     borderColor: "divider",
@@ -74,7 +74,7 @@ export default function ThemeShowcasePage() {
                     Orange (Secondary)
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {colors.orange}
+                    {theme.palette.secondary.main}
                   </Typography>
                 </Box>
               </Box>
@@ -84,7 +84,7 @@ export default function ThemeShowcasePage() {
                   sx={{
                     width: 60,
                     height: 60,
-                    backgroundColor: colors.blue,
+                    backgroundColor: theme.palette.info.main,
                     borderRadius: 2,
                     border: 1,
                     borderColor: "divider",
@@ -95,7 +95,7 @@ export default function ThemeShowcasePage() {
                     Blue (Info)
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {colors.blue}
+                    {theme.palette.info.main}
                   </Typography>
                 </Box>
               </Box>

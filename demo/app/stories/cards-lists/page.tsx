@@ -41,7 +41,7 @@ import {
   ShoppingCart as ShoppingCartIcon,
   Notifications as NotificationsIcon,
 } from "@mui/icons-material";
-import { HighlightH1, HighlightH2 } from "@/components/Highlight";
+import { HighlightH1, HighlightH2 } from "@sqyping/mui-theme";
 
 export default function CardsAndListsPage() {
   const [expanded, setExpanded] = useState<string | false>(false);

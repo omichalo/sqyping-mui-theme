@@ -10,8 +10,7 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
-import { HighlightH1, HighlightTitle } from "@/components/Highlight";
-import { useColorMode } from "@/providers/AppThemeProvider";
+import { HighlightH1, HighlightTitle, useColorMode } from "@sqyping/mui-theme";
 import Link from "next/link";
 import Image from "next/image";
 import {

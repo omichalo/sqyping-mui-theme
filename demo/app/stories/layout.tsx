@@ -1,4 +1,4 @@
-import { StoryLayout } from "@/components/StoryLayout";
+import { StoryLayout } from "../../components/StoryLayout";
 
 export default function StoriesLayout({
   children,

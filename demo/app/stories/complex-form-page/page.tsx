@@ -40,7 +40,7 @@ import {
   Add as AddIcon,
   Check as CheckIcon,
 } from "@mui/icons-material";
-import { HighlightH1, HighlightH2 } from "@/components/Highlight";
+import { HighlightH1, HighlightH2 } from "@sqyping/mui-theme";
 
 const steps = [
   "Informations personnelles",

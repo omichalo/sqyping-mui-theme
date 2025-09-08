@@ -25,7 +25,7 @@ import {
   MenuItem,
   FormHelperText,
 } from "@mui/material";
-import { HighlightH1, HighlightH2 } from "@/components/Highlight";
+import { HighlightH1, HighlightH2 } from "@sqyping/mui-theme";
 
 // Options pour l'autocomplete
 const top100Films = [

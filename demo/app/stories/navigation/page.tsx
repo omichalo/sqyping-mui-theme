@@ -38,7 +38,7 @@ import {
   Favorite as FavoriteIcon,
   NavigateNext as NavigateNextIcon,
 } from "@mui/icons-material";
-import { HighlightH1, HighlightH2 } from "@/components/Highlight";
+import { HighlightH1, HighlightH2 } from "@sqyping/mui-theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;

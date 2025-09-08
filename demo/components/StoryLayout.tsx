@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -30,8 +30,8 @@ import {
   DarkMode as DarkModeIcon,
   LightMode as LightModeIcon,
 } from "@mui/icons-material";
-// Note: Image component should be provided by the consuming application
-import { useColorMode } from "../providers/AppThemeProvider";
+import Image from "next/image";
+import { useColorMode } from "@sqyping/mui-theme";
 
 const DRAWER_WIDTH = 280;
 
@@ -106,13 +106,12 @@ export function StoryLayout({ children }: { children: React.ReactNode }) {
     <Box>
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Box
-            component="img"
+          <Image
             src="/images/sqying.png"
             alt="SQY PING"
-            sx={{
-              width: 40,
-              height: 40,
+            width={40}
+            height={40}
+            style={{
               filter: mode === "dark" ? "invert(1)" : "none",
             }}
           />

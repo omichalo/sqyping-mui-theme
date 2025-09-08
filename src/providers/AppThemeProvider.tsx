@@ -8,7 +8,7 @@ import React, {
   ReactNode,
 } from "react";
 import { ThemeProvider as MuiThemeProvider, CssBaseline } from "@mui/material";
-import { getTheme } from "@/theme";
+import { getTheme } from "../theme";
 
 // Types
 type ColorMode = "light" | "dark";

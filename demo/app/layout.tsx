@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AppThemeProvider } from "@/providers/AppThemeProvider";
+import { ClientThemeProvider } from "../components/ClientThemeProvider";
 import "@fontsource-variable/figtree/index.css";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <AppThemeProvider>{children}</AppThemeProvider>
+        <ClientThemeProvider>{children}</ClientThemeProvider>
       </body>
     </html>
   );

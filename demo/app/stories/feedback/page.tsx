@@ -34,7 +34,7 @@ import {
   Delete as DeleteIcon,
   Edit as EditIcon,
 } from "@mui/icons-material";
-import { HighlightH1, HighlightH2 } from "@/components/Highlight";
+import { HighlightH1, HighlightH2 } from "@sqyping/mui-theme";
 
 export default function FeedbackPage() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
