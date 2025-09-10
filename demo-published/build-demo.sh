@@ -23,3 +23,4 @@ echo ""
 echo "📦 Pour exporter en statique:"
 echo "   npm run export"
 
+
