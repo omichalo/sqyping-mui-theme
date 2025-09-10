@@ -9,9 +9,14 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariantsOptions {
-    display1?: React.CSSProperties;
+    display1?: React.CSSProperties & {
+      "@media (max-width:600px)"?: React.CSSProperties;
+    };
     eyebrow?: React.CSSProperties;
-    highlightTitle?: React.CSSProperties;
+    highlightTitle?: React.CSSProperties & {
+      "@media (max-width:600px)"?: React.CSSProperties;
+      "&::after"?: React.CSSProperties;
+    };
   }
 }
 
@@ -32,7 +37,6 @@ export const typography: TypographyOptions = {
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
-  fontWeightBlack: 900,
 
   // Tailles de base
   fontSize: 16,

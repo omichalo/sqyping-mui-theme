@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { isServer, canUseHooks } from "../utils/environment";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -31,8 +30,8 @@ import {
   DarkMode as DarkModeIcon,
   LightMode as LightModeIcon,
 } from "@mui/icons-material";
-// Note: Image component should be provided by the consuming application
-import { useColorMode } from "../providers/AppThemeProvider";
+import Image from "next/image";
+import { useColorMode } from "@omichalo/sqyping-mui-theme";
 
 const DRAWER_WIDTH = 280;
 
@@ -47,12 +46,6 @@ export function StoryLayout({ children }: { children: React.ReactNode }) {
   const theme = useTheme();
   const { mode, toggleColorMode } = useColorMode();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    if (!canUseHooks) return;
-    setMounted(true);
-  }, []);
 
   const storyPages: StoryPage[] = [
     {
@@ -113,13 +106,12 @@ export function StoryLayout({ children }: { children: React.ReactNode }) {
     <Box>
       <Toolbar>
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Box
-            component="img"
+          <Image
             src="/images/sqying.png"
             alt="SQY PING"
-            sx={{
-              width: 40,
-              height: 40,
+            width={40}
+            height={40}
+            style={{
               filter: mode === "dark" ? "invert(1)" : "none",
             }}
           />
@@ -206,30 +198,6 @@ export function StoryLayout({ children }: { children: React.ReactNode }) {
       </Box>
     </Box>
   );
-
-  // Si on est côté serveur ou qu'on ne peut pas utiliser les hooks
-  if (isServer || !canUseHooks) {
-    return (
-      <div suppressHydrationWarning>
-        <div style={{ padding: "20px" }}>
-          <h1>SQY PING Theme Stories</h1>
-          {children}
-        </div>
-      </div>
-    );
-  }
-
-  // Si on n'est pas encore monté côté client
-  if (!mounted) {
-    return (
-      <div suppressHydrationWarning>
-        <div style={{ padding: "20px" }}>
-          <h1>SQY PING Theme Stories</h1>
-          {children}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>

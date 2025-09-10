@@ -1,7 +1,7 @@
 {
-  "name": "sqyping-mui-theme-demo",
+  "name": "sqyping-mui-theme-demo-published",
   "version": "1.0.0",
-  "description": "Demo application for SQY PING MUI Theme",
+  "description": "Demo application for SQY PING MUI Theme using published package",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,7 @@
     "deploy": "npm run export && firebase deploy"
   },
   "dependencies": {
-    "@sqyping/mui-theme": "file:..",
+    "@omichalo/sqyping-mui-theme": "^0.1.7",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.19",

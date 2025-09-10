@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, TypographyProps, styled } from "@mui/material";
+import { isServer, canUseHooks } from "../utils/environment";
 
 // Props du composant Highlight
 interface HighlightProps extends Omit<TypographyProps, "variant"> {
@@ -14,10 +15,14 @@ interface HighlightProps extends Omit<TypographyProps, "variant"> {
 
 // Composant styled pour le surlignage
 const HighlightedText = styled(Typography, {
-  shouldForwardProp: (prop) =>
-    !["highlightColor", "highlightOpacity", "highlightHeight"].includes(
-      prop as string
-    ),
+  shouldForwardProp: (prop) => {
+    const excludedProps = [
+      "highlightColor",
+      "highlightOpacity",
+      "highlightHeight",
+    ];
+    return excludedProps.indexOf(prop as string) === -1;
+  },
 })<{
   highlightColor?: string;
   highlightOpacity?: number;
@@ -70,6 +75,31 @@ export const Highlight: React.FC<HighlightProps> = ({
   sx,
   ...props
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (!canUseHooks) return;
+    setMounted(true);
+  }, []);
+
+  // Si on est côté serveur ou qu'on ne peut pas utiliser les hooks
+  if (isServer || !canUseHooks) {
+    return (
+      <Typography variant={variant} sx={sx} {...props}>
+        {children}
+      </Typography>
+    );
+  }
+
+  // Si on n'est pas encore monté côté client
+  if (!mounted) {
+    return (
+      <Typography variant={variant} sx={sx} {...props}>
+        {children}
+      </Typography>
+    );
+  }
+
   return (
     <HighlightedText
       variant={variant}

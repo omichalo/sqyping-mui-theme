@@ -14,9 +14,10 @@ Un thème MUI (Material-UI) production-ready pour applications React/Next.js, co
 
 ### Typographie
 
-- **Police**: Google Figtree (Thin → Black)
+- **Police**: Google Figtree Variable (chargée automatiquement)
 - **Style**: Moderne avec variantes personnalisées
 - **Titres**: Très gras avec effet de surlignage
+- **Chargement**: Automatique via le thème (aucune configuration requise)
 
 ### Design
 
@@ -46,6 +47,8 @@ npm install @sqyping/mui-theme
 }
 ```
 
+> **Note** : La police Figtree Variable est automatiquement incluse et chargée par le thème. Aucune configuration supplémentaire n'est requise.
+
 ## 📁 Structure du projet
 
 ```
@@ -61,6 +64,7 @@ sqyping-mui-theme/
 │   │   └── AppThemeProvider.tsx # Provider avec gestion des modes
 │   ├── components/               # Composants personnalisés
 │   │   ├── Highlight.tsx        # Composant de surlignage
+│   │   ├── FontProvider.tsx     # Chargement automatique de la police
 │   │   └── StoryLayout.tsx      # Layout pour démonstrations
 │   └── index.ts                  # Export principal du package
 ├── demo/                         # Application de démonstration
@@ -175,8 +179,9 @@ function App() {
 ### Composants personnalisés
 
 - **Highlight**: Composant pour titres surlignés
+- **FontProvider**: Chargement automatique de la police Figtree
 - **StoryLayout**: Layout pour pages de démonstration
-- **AppThemeProvider**: Provider avec gestion des modes
+- **AppThemeProvider**: Provider avec gestion des modes et chargement de police
 
 ### Thème MUI complet
 

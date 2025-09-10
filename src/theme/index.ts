@@ -31,7 +31,7 @@ export const getTheme = (mode: "light" | "dark") => {
   const theme = createTheme(themeOptions);
 
   // Ajouter les composants personnalisés après la création du thème
-  theme.components = createComponents(theme);
+  theme.components = createComponents(theme) as any;
 
   return theme;
 };

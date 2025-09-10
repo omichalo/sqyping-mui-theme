@@ -7,8 +7,14 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { ThemeProvider as MuiThemeProvider, CssBaseline } from "@mui/material";
 import { getTheme } from "../theme";
+import { SSRSafeThemeProvider } from "./SSRSafeThemeProvider";
+import { FontProvider } from "../components/FontProvider";
+import {
+  isServer,
+  canUseHooks,
+  canUseLocalStorage,
+} from "../utils/environment";
 
 // Types
 type ColorMode = "light" | "dark";
@@ -44,19 +50,33 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   children,
   defaultMode = "light",
 }) => {
-  const [mode, setMode] = useState<ColorMode>(defaultMode);
-
-  // Charger le mode depuis localStorage au montage
-  useEffect(() => {
-    const savedMode = localStorage.getItem("sqyping-color-mode") as ColorMode;
-    if (savedMode && (savedMode === "light" || savedMode === "dark")) {
-      setMode(savedMode);
+  // Initialiser le mode avec une valeur par défaut, puis le charger depuis localStorage
+  const [mode, setMode] = useState<ColorMode>(() => {
+    // Si on est côté client et qu'on peut accéder à localStorage, essayer de charger le mode sauvegardé
+    if (canUseHooks && canUseLocalStorage) {
+      try {
+        const savedMode = localStorage.getItem(
+          "sqyping-color-mode"
+        ) as ColorMode;
+        if (savedMode && (savedMode === "light" || savedMode === "dark")) {
+          return savedMode;
+        }
+      } catch (error) {
+        console.warn("Failed to load color mode from localStorage:", error);
+      }
     }
-  }, []);
+    return defaultMode;
+  });
 
-  // Sauvegarder le mode dans localStorage
+  // Sauvegarder le mode dans localStorage quand il change (client-side only)
   useEffect(() => {
-    localStorage.setItem("sqyping-color-mode", mode);
+    if (!canUseHooks || !canUseLocalStorage) return;
+
+    try {
+      localStorage.setItem("sqyping-color-mode", mode);
+    } catch (error) {
+      console.warn("Failed to save color mode to localStorage:", error);
+    }
   }, [mode]);
 
   // Fonction pour basculer le mode
@@ -79,12 +99,12 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
     setColorMode,
   };
 
+  // Toujours fournir le contexte, même pendant le rendu SSR
   return (
     <ColorModeContext.Provider value={contextValue}>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </MuiThemeProvider>
+      <FontProvider>
+        <SSRSafeThemeProvider theme={theme}>{children}</SSRSafeThemeProvider>
+      </FontProvider>
     </ColorModeContext.Provider>
   );
 };
