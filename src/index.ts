@@ -13,8 +13,8 @@ export { StoryLayout } from "./components/StoryLayout";
 export { FontProvider } from "./components/FontProvider";
 
 // Re-export MUI components that are commonly used with the theme
-export { 
-  ThemeProvider, 
+export {
+  ThemeProvider,
   CssBaseline,
   // Layout components
   Box,

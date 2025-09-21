@@ -10,6 +10,10 @@ import React, {
 import { getTheme } from "../theme";
 import { SSRSafeThemeProvider } from "./SSRSafeThemeProvider";
 import { FontProvider } from "../components/FontProvider";
+import { isServer } from "../utils/environment";
+
+// Vérifier si on est côté client
+const isClient = typeof window !== "undefined";
 
 // Types
 type ColorMode = "light" | "dark";
@@ -27,6 +31,15 @@ const ColorModeContext = createContext<ColorModeContextType | undefined>(
 
 // Hook personnalisé
 export const useColorMode = (): ColorModeContextType => {
+  // Si on est côté serveur, on retourne des valeurs par défaut
+  if (!isClient) {
+    return {
+      mode: "light",
+      toggleColorMode: () => {},
+      setColorMode: () => {},
+    };
+  }
+
   const context = useContext(ColorModeContext);
   if (!context) {
     throw new Error("useColorMode must be used within an AppThemeProvider");
@@ -45,7 +58,17 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   children,
   defaultMode = "light",
 }) => {
-  // État pour le mode de couleur
+  // Si on est côté serveur, on utilise le mode par défaut
+  if (!isClient) {
+    const theme = getTheme(defaultMode);
+    return (
+      <SSRSafeThemeProvider theme={theme}>
+        <FontProvider>{children}</FontProvider>
+      </SSRSafeThemeProvider>
+    );
+  }
+
+  // État pour le mode de couleur (côté client uniquement)
   const [mode, setMode] = useState<ColorMode>(defaultMode);
   const [mounted, setMounted] = useState(false);
 
