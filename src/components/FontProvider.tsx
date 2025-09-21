@@ -5,7 +5,7 @@ import React from "react";
  *
  * Ce composant charge automatiquement la police Figtree Variable utilisée par le thème SQY PING.
  * Il doit être utilisé au niveau racine de l'application, idéalement dans le AppThemeProvider.
- * 
+ *
  * Note: Le CSS de la police doit être importé manuellement dans l'application parente
  * avec: import '@fontsource-variable/figtree/index.css'
  */

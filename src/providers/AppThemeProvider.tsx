@@ -52,7 +52,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   // Effet pour charger le mode depuis localStorage (client-side seulement)
   useEffect(() => {
     setMounted(true);
-    
+
     // Charger le mode depuis localStorage
     try {
       const savedMode = localStorage.getItem("sqyping-color-mode") as ColorMode;
@@ -67,7 +67,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({
   // Effet pour sauvegarder le mode dans localStorage
   useEffect(() => {
     if (!mounted) return;
-    
+
     try {
       localStorage.setItem("sqyping-color-mode", mode);
     } catch (error) {

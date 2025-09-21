@@ -55,18 +55,18 @@ export const Highlight: React.FC<HighlightProps> = ({
   );
 };
 
-export const HighlightH1: React.FC<Omit<HighlightProps, "variant">> = (props) => (
-  <Highlight variant="h1" {...props} />
-);
+export const HighlightH1: React.FC<Omit<HighlightProps, "variant">> = (
+  props
+) => <Highlight variant="h1" {...props} />;
 
-export const HighlightH2: React.FC<Omit<HighlightProps, "variant">> = (props) => (
-  <Highlight variant="h2" {...props} />
-);
+export const HighlightH2: React.FC<Omit<HighlightProps, "variant">> = (
+  props
+) => <Highlight variant="h2" {...props} />;
 
-export const HighlightH3: React.FC<Omit<HighlightProps, "variant">> = (props) => (
-  <Highlight variant="h3" {...props} />
-);
+export const HighlightH3: React.FC<Omit<HighlightProps, "variant">> = (
+  props
+) => <Highlight variant="h3" {...props} />;
 
-export const HighlightTitle: React.FC<Omit<HighlightProps, "variant">> = (props) => (
-  <Highlight variant="h4" {...props} />
-);
+export const HighlightTitle: React.FC<Omit<HighlightProps, "variant">> = (
+  props
+) => <Highlight variant="h4" {...props} />;
