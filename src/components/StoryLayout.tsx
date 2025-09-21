@@ -1,230 +1,53 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
-import { isServer, canUseHooks } from "../utils/environment";
-import {
-  AppBar,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  Typography,
-  Switch,
-  FormControlLabel,
-  Divider,
-  useTheme,
-  IconButton,
-} from "@mui/material";
-import {
-  Palette as PaletteIcon,
-  Widgets as WidgetsIcon,
-  Description as DescriptionIcon,
-  Navigation as NavigationIcon,
-  Feedback as FeedbackIcon,
-  ViewList as ViewListIcon,
-  Dashboard as DashboardIcon,
-  Assignment as AssignmentIcon,
-  DarkMode as DarkModeIcon,
-  LightMode as LightModeIcon,
-} from "@mui/icons-material";
-// Note: Image component should be provided by the consuming application
-import { useColorMode } from "../providers/AppThemeProvider";
-
-const DRAWER_WIDTH = 280;
+import { Box, Typography, Button, Stack } from "@mui/material";
+import { isServer } from "../utils/environment";
 
 interface StoryPage {
   title: string;
   path: string;
-  icon: React.ReactElement;
-  description: string;
 }
 
-export function StoryLayout({ children }: { children: React.ReactNode }) {
-  const theme = useTheme();
-  const { mode, toggleColorMode } = useColorMode();
-  const [mobileOpen, setMobileOpen] = useState(false);
+interface StoryLayoutProps {
+  children: React.ReactNode;
+  title?: string;
+}
+
+export const StoryLayout: React.FC<StoryLayoutProps> = ({
+  children,
+  title = "SQY PING Theme Stories",
+}) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!canUseHooks) return;
     setMounted(true);
   }, []);
 
   const storyPages: StoryPage[] = [
-    {
-      title: "Theme Showcase",
-      path: "/stories/theme-showcase",
-      icon: <PaletteIcon />,
-      description: "Palette de couleurs et typographies",
-    },
-    {
-      title: "Buttons & Chips",
-      path: "/stories/buttons-chips",
-      icon: <WidgetsIcon />,
-      description: "Boutons, chips et badges",
-    },
-    {
-      title: "Forms",
-      path: "/stories/forms",
-      icon: <DescriptionIcon />,
-      description: "Formulaires et contrôles",
-    },
-    {
-      title: "Navigation",
-      path: "/stories/navigation",
-      icon: <NavigationIcon />,
-      description: "Navigation et menus",
-    },
-    {
-      title: "Feedback",
-      path: "/stories/feedback",
-      icon: <FeedbackIcon />,
-      description: "Alertes et notifications",
-    },
-    {
-      title: "Cards & Lists",
-      path: "/stories/cards-lists",
-      icon: <ViewListIcon />,
-      description: "Cards et listes",
-    },
-    {
-      title: "Complex Dashboard",
-      path: "/stories/complex-dashboard",
-      icon: <DashboardIcon />,
-      description: "Tableau de bord complet",
-    },
-    {
-      title: "Complex Form Page",
-      path: "/stories/complex-form-page",
-      icon: <AssignmentIcon />,
-      description: "Formulaire multi-étapes",
-    },
+    { title: "Accueil", path: "/" },
+    { title: "Couleurs", path: "/colors" },
+    { title: "Typographie", path: "/typography" },
+    { title: "Composants", path: "/components" },
+    { title: "Formulaires", path: "/forms" },
   ];
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <Box>
-      <Toolbar>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Box
-            component="img"
-            src="/images/sqying.png"
-            alt="SQY PING"
-            sx={{
-              width: 40,
-              height: 40,
-              filter: mode === "dark" ? "invert(1)" : "none",
-            }}
-          />
-          <Typography variant="h6" noWrap component="div">
-            SQY PING
-          </Typography>
-        </Box>
-      </Toolbar>
-      <Divider />
-      <List>
-        {storyPages.map((page) => (
-          <ListItem key={page.path} disablePadding>
-            <ListItemButton
-              href={page.path}
-              sx={{
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.main + "08",
-                },
-              }}
-            >
-              <ListItemIcon sx={{ color: "primary.main" }}>
-                {page.icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={page.title}
-                secondary={page.description}
-                primaryTypographyProps={{
-                  variant: "body2",
-                  fontWeight: 500,
-                }}
-                secondaryTypographyProps={{
-                  variant: "caption",
-                  color: "text.secondary",
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider sx={{ mx: 2 }} />
-
-      <Box sx={{ p: 2 }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={mode === "dark"}
-              onChange={toggleColorMode}
-              sx={{
-                "& .MuiSwitch-thumb": {
-                  backgroundColor: mode === "dark" ? "#fff" : "#ffa726",
-                },
-                "& .MuiSwitch-track": {
-                  backgroundColor: mode === "dark" ? "#1976d2" : "#ffcc02",
-                  opacity: 1,
-                },
-              }}
-            />
-          }
-          label={
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              {mode === "dark" ? (
-                <DarkModeIcon
-                  fontSize="small"
-                  sx={{ color: "primary.contrastText" }}
-                />
-              ) : (
-                <LightModeIcon
-                  fontSize="small"
-                  sx={{ color: "warning.dark" }}
-                />
-              )}
-              <Typography
-                variant="body2"
-                sx={{
-                  fontWeight: 500,
-                  color: "text.primary",
-                }}
-              >
-                {mode === "dark" ? "Mode sombre" : "Mode clair"}
-              </Typography>
-            </Box>
-          }
-        />
-      </Box>
-    </Box>
-  );
-
-  // Si on est côté serveur ou qu'on ne peut pas utiliser les hooks
-  if (isServer || !canUseHooks) {
+  // Si on est côté serveur
+  if (isServer) {
     return (
       <div suppressHydrationWarning>
         <div style={{ padding: "20px" }}>
-          <h1>SQY PING Theme Stories</h1>
+          <h1>{title}</h1>
           {children}
         </div>
       </div>
     );
   }
 
-  // Si on n'est pas encore monté côté client
+  // Si pas encore monté côté client
   if (!mounted) {
     return (
       <div suppressHydrationWarning>
         <div style={{ padding: "20px" }}>
-          <h1>SQY PING Theme Stories</h1>
+          <h1>{title}</h1>
           {children}
         </div>
       </div>
@@ -232,78 +55,37 @@ export function StoryLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <AppBar
-        position="static"
+    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
+      <Box
         sx={{
-          backgroundColor: "primary.main",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          bgcolor: "background.paper",
+          borderBottom: 1,
+          borderColor: "divider",
+          px: 3,
+          py: 2,
         }}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { md: "none" } }}
-          >
-            <PaletteIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            SQY PING Theme Stories
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
-      <Box sx={{ display: "flex", flexGrow: 1 }}>
-        <Box
-          component="nav"
-          sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}
-        >
-          <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            sx={{
-              display: { xs: "block", md: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: DRAWER_WIDTH,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: "none", md: "block" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: DRAWER_WIDTH,
-              },
-            }}
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            p: 3,
-            width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
-          }}
-        >
-          {children}
-        </Box>
+        <Typography variant="h4" component="h1" gutterBottom>
+          {title}
+        </Typography>
+        <Stack direction="row" spacing={1} flexWrap="wrap">
+          {storyPages.map((page) => (
+            <Button
+              key={page.path}
+              variant="outlined"
+              size="small"
+              href={page.path}
+              sx={{ textTransform: "none" }}
+            >
+              {page.title}
+            </Button>
+          ))}
+        </Stack>
       </Box>
+      <Box sx={{ p: 3 }}>{children}</Box>
     </Box>
   );
-}
+};

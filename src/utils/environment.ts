@@ -22,9 +22,6 @@ export const isBuild =
 export const isDev =
   typeof process !== "undefined" && process.env.NODE_ENV === "development";
 
-// Fonction pour vérifier si on peut utiliser les hooks React
-export const canUseHooks = isClient && !isTest;
-
 // Fonction pour vérifier si on peut utiliser localStorage
 export const canUseLocalStorage =
   isClient && typeof localStorage !== "undefined";
